@@ -7,17 +7,13 @@ This repository was created for the DSCI 521 course at Drexel University. The ov
 
 ## File Manifest: 
 
-- `final_project.ipynb` - Main code that scrapes the Tesla website
-- `Database_Checker.ipynb` -  Main code used for Tesla and Federal comparison
+- `RedBlueStates_ZACH.ipynb` - Main code that calcualtes political metric and analyzes COVID data.
 - `Folder /data` - Contains all data files 
-  - `tesla_superchargers.csv` - Tesla dataset created after running code
-  - `alt_fuel_stations (Oct 4 2020).csv` [Federal dataset](https://afdc.energy.gov/stations/#/analyze?country=US&fuel=ELEC&ev_levels=all&access=public&access=private) copy
-  - `output.json` Initial JSON output for proof of concept, final version will *not* output this file.
-- `Folder /drafts` - Contains code versions used to scrape Tesla website
-  - `10-11-2020.ipynb` - First version of code used for scraping
-  - `Project 11-16-2020.ipynb` - Second version
-  - `Project 11-23-2020.ipynb` - Third version 
-- `Tesla Data Project Presentation.pptx` - PowerPoint slides for final presentation
+  - `states.csv` - Names and abbreviations of all states
+  - `election_results.csv` - Election data from 1976-2020 (source in **Project Overview**)
+  - `election_results_FINAL.csv` - Cleaned version of election_results.csv
+  - `us_state_vaccinations.csv` - US COVID data (source in **Project Overview**)
+- `DSCI 521 Final Presentation.pptx` - PowerPoint slides for final presentation, includes analyses from three other avenues of inquiry (See **Team Members**)
  
 ## Reason for Project:
 This project was completed on June 1st, 2021.  At the time, COVID was still on the rise.  Even still, knowing how states are responding to the pandemic is critical for us to respond quickly and efficiently in the future.  Political sentient clearly plays a role in the everyday citizen's view of the pandemic.  We were curious as to whether rhetoric from the Trump Administration - or from the Republican party as a whole - had any impact on which individuals were getting vaccines.
