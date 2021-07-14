@@ -1,7 +1,7 @@
 
 # Assessing Proportion of Fully Vaccinated Individuals in Red States Versus Blue States Using a Political Metric
 
-## Project Overviews
+## Project Overview
 
 This repository was created for the DSCI 521 course at Drexel University. The overall scope of this project was to see whether or not red states versus blue states had different proportions of fully vaccinated individuals based off a political metric.  The political metric was calculated using [election data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX) going back to 1976, provided by the [MIT Election Lab](https://electionlab.mit.edu/).  The [COVID data](https://github.com/owid/covid-19-data/tree/master/public/data) was pulled from [Our World In Data](https://ourworldindata.org) at time of processing on **June 1st, 2021**.
 
