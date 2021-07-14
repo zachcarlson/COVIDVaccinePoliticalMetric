@@ -3,7 +3,7 @@
 
 ## Project Overviews
 
-This repository was created for the DSCI 521 course at Drexel University. The overall scope of this project was to see whether or not red states versus blue states had different proportions of fully vaccinated individuals based of a political metric.  The political metric was calculated using [election data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX) going back as far as 1976.  The [COVID data](https://github.com/owid/covid-19-data/tree/master/public/data) was pulled from Our World In Data at time of processing on **June 1st, 2021**.
+This repository was created for the DSCI 521 course at Drexel University. The overall scope of this project was to see whether or not red states versus blue states had different proportions of fully vaccinated individuals based off a political metric.  The political metric was calculated using [election data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX) going back to 1976, provided by the [MIT Election Lab](https://electionlab.mit.edu/).  The [COVID data](https://github.com/owid/covid-19-data/tree/master/public/data) was pulled from [Our World In Data](https://ourworldindata.org) at time of processing on **June 1st, 2021**.
 
 ## File Manifest: 
 
@@ -20,7 +20,7 @@ This repository was created for the DSCI 521 course at Drexel University. The ov
 - `Tesla Data Project Presentation.pptx` - PowerPoint slides for final presentation
  
 ## Reason for Project:
-This project was completed in May 2021.  At the time, COVID was still on the rise.  Even still, knowing how states are responding to the pandemic is critical for us to respond quickly and efficiently in the future.  Political sentient clearly plays a role in the everyday citizen's view of the pandemic.  We were curious as to whether rhetoric from the Trump Administration - or from the Republican party as a whole - had any impact on which individuals were getting vaccines.
+This project was completed on June 1st, 2021.  At the time, COVID was still on the rise.  Even still, knowing how states are responding to the pandemic is critical for us to respond quickly and efficiently in the future.  Political sentient clearly plays a role in the everyday citizen's view of the pandemic.  We were curious as to whether rhetoric from the Trump Administration - or from the Republican party as a whole - had any impact on which individuals were getting vaccines.
 
 ## Team Members
 
@@ -31,49 +31,35 @@ Our team consisted of the following individuals:
 - Fernando Ramirez, wm374@drexel.edu
 - Zach Carlson, zc378@drexel.edu
 
+Our overall project was broken down into four separate avenues of inquiry, all of which related to COVID data.  My portion (Zach), pertained to election data.  While group members are listed above, **VaccinePoliticalMetric was entirely my work.**
+
 ## Requirements
-- This project was developed using Python 3.8. 
+- Python ≥ 3.8. 
 - Python modules, packages, and methods required: 
     - `pandas`
     - `matplotlib.pylot`
     - `numpy`
 
-## Results of Code:
-
-After running the code, the resulting dataset is found in two main formats. In Python, the data structure of the results is a nested dictionary file type that is written out to a `.csv` file. In addition, outside of Python, a local `.csv` file is created after code execution. 
-
 ## How to Execute Code: 
 
-All of the code in this project needs to be opened with the Jupyter notebook environment. We recommend using [Anaconda](https://www.anaconda.com/products/individual) to help with Jupyter notebook.
+All of the code in this project needs to be opened with the Jupyter notebook environment. We recommend using [Anaconda](https://www.anaconda.com/products/individual) to help with Jupyter notebook.  Additionally, this code can be run in Google Colab or your preferred Python coding environment, assuming folder organization remains unchanged.
 
 ## Explanation of Code: 
 
 ### _**Political Metric**_
 
-To sort each state in red versus blue, we took the historical election data and gave each state either a `1` or a `-1` based on if it voted Republican or Democrat.  We added these values up to get a rough idea of political sentiment.  A value of `12` would be the most Republican, a value of `-12` would the most Democratic.  
+To sort each state in red versus blue, we took the historical election data and gave each state either a `1` or a `-1` based on if it voted Republican or Democrat for a given election year.  We added these values up to get a rough idea of political sentiment.  A value of `12` would be the most Republican, a value of `-12` would the most Democratic (the election data spanned 12 election cycles).  
 
-This idea made sense in theory, but required several major tweaks.
-1. By equating the election results of 1976 to 2020, states that were historically red but are currently very blue were marked as perfectly neutral (i.e. California.)
+To utilize the historical election data, several things had to be addressed:
+1. If just the 2020 election results were used swing states may be placed into the incorrect political group.  
+2. If all election years are used equally, states that were historically red but are currently very blue may be marked as perfectly neutral (i.e. California).
 
+To address these concerns, all election years were used (solves issue 1) and a list of `weights` were applied to the `1`s and `-1`s, giving more weight to more recent elections compared to older ones.
+
+The states were then sorted based off if they were greater than 0 (i.e. voted majority Repulican since 1976) or less than 0 (i.e. voted majority Democrat since 1976).
 
 
 ## Known Limitations of Project:
 
-- The project is limited to the collection of data only from Tesla’s website, not including any other electric vehicle. 
-- Consumers cannot use our project to check for locations of other types of electric vehicles, only Tesla Supercharger locations.
-- The federal dataset information used is time dated to the time of download. The last download of the dataset was: October 4th 2020
-- The `Database_Checker` is limited to user input of: State, City, and Zip Code - between the datasets.
-
-
-## Potential Future Development: 
-
-
-
-
-## Sharing Permissions:
-
-- Content is free to share and copy for own use.
- 
-
-
-
+- The project sorts states based off Presidential election data only.  It would be worthwhile to look at more local elections, Senate elections, etc.
+- The findings are purely correlation.  It simply plots/sorts states based off Presidential-based election data against the proportion of people fully vaccinated.  It does not take into account number of vaccines available, number of vaccination sites available, the average distance a person is to a vaccinate site, the manufacturer's available in each area, the free time a state's citizens have to get vaccines, marketing budget in each state, etc.
