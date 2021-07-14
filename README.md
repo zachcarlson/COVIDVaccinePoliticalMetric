@@ -35,6 +35,7 @@ Our overall project was broken down into four separate avenues of inquiry, all o
     - `pandas`
     - `matplotlib.pylot`
     - `numpy`
+    - `scipy`
 
 ## How to Execute Code: 
 
